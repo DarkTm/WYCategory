@@ -11,5 +11,7 @@
 
 #import "UIButton+Block.h"
 #import "UIAlertView+Block.h"
+#import "UIColor+Category.h"
+#import "UIImage+Category.h"
 
 #endif

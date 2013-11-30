@@ -15,4 +15,7 @@ typedef void (^WYUIAlertViewBlock)(NSInteger index);
 
 -(void)addActionHandler:(WYUIAlertViewBlock)block;
 
++(UIAlertView *)showAlertViewWithTitle:(NSString *)title;
++(UIAlertView *)showAlertViewWithTitle:(NSString *)title withMessage:(NSString *)msg;
++(UIAlertView *)showAlertViewWithTitle:(NSString *)title withMessage:(NSString *)msg withAction:(WYUIAlertViewBlock)block;
 @end

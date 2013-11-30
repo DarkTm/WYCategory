@@ -21,6 +21,12 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    [UIAlertView showAlertViewWithTitle:@"" withMessage:@"" withAction:^(NSInteger index) {
+        NSLog(@"%d",index);
+    }];
+    
+//    [NSJSONSerialization];
+    
 }
 
 - (void)didReceiveMemoryWarning

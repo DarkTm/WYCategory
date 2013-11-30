@@ -13,7 +13,6 @@
 		5F9671091849DA93009CCF8C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F9671071849DA93009CCF8C /* InfoPlist.strings */; };
 		5F96710B1849DA93009CCF8C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F96710A1849DA93009CCF8C /* main.m */; };
 		5F96710F1849DA93009CCF8C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F96710E1849DA93009CCF8C /* AppDelegate.m */; };
-		5F9671121849DA93009CCF8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F9671101849DA93009CCF8C /* Main.storyboard */; };
 		5F9671151849DA93009CCF8C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9671141849DA93009CCF8C /* ViewController.m */; };
 		5F9671171849DA93009CCF8C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F9671161849DA93009CCF8C /* Images.xcassets */; };
 		5F96711E1849DA93009CCF8C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F96711D1849DA93009CCF8C /* XCTest.framework */; };
@@ -25,6 +24,8 @@
 		5F9671411849DB06009CCF8C /* NSString+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9671381849DB06009CCF8C /* NSString+Category.m */; };
 		5F9671421849DB06009CCF8C /* UIAlertView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F96713C1849DB06009CCF8C /* UIAlertView+Block.m */; };
 		5F9671431849DB06009CCF8C /* UIButton+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F96713E1849DB06009CCF8C /* UIButton+Block.m */; };
+		E23AADF6184A9EB700609645 /* UIColor+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = E23AADF5184A9EB700609645 /* UIColor+Category.m */; };
+		E23AADF9184AA79F00609645 /* UIImage+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = E23AADF8184AA79F00609645 /* UIImage+Category.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +49,6 @@
 		5F96710C1849DA93009CCF8C /* WYCategory-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WYCategory-Prefix.pch"; sourceTree = "<group>"; };
 		5F96710D1849DA93009CCF8C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5F96710E1849DA93009CCF8C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5F9671111849DA93009CCF8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5F9671131849DA93009CCF8C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		5F9671141849DA93009CCF8C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		5F9671161849DA93009CCF8C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -68,6 +68,10 @@
 		5F96713E1849DB06009CCF8C /* UIButton+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Block.m"; sourceTree = "<group>"; };
 		5F96713F1849DB06009CCF8C /* WYUIKitCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYUIKitCategory.h; sourceTree = "<group>"; };
 		5F9671441849DB16009CCF8C /* WYCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYCategory.h; sourceTree = "<group>"; };
+		E23AADF4184A9EB700609645 /* UIColor+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Category.h"; sourceTree = "<group>"; };
+		E23AADF5184A9EB700609645 /* UIColor+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Category.m"; sourceTree = "<group>"; };
+		E23AADF7184AA79F00609645 /* UIImage+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Category.h"; sourceTree = "<group>"; };
+		E23AADF8184AA79F00609645 /* UIImage+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Category.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +134,6 @@
 				5F9671331849DB06009CCF8C /* WYCategory */,
 				5F96710D1849DA93009CCF8C /* AppDelegate.h */,
 				5F96710E1849DA93009CCF8C /* AppDelegate.m */,
-				5F9671101849DA93009CCF8C /* Main.storyboard */,
 				5F9671131849DA93009CCF8C /* ViewController.h */,
 				5F9671141849DA93009CCF8C /* ViewController.m */,
 				5F9671161849DA93009CCF8C /* Images.xcassets */,
@@ -181,11 +184,11 @@
 		5F9671341849DB06009CCF8C /* NSCategory */ = {
 			isa = PBXGroup;
 			children = (
+				5F9671391849DB06009CCF8C /* WYNSCategory.h */,
 				5F9671351849DB06009CCF8C /* NSData+Category.h */,
 				5F9671361849DB06009CCF8C /* NSData+Category.m */,
 				5F9671371849DB06009CCF8C /* NSString+Category.h */,
 				5F9671381849DB06009CCF8C /* NSString+Category.m */,
-				5F9671391849DB06009CCF8C /* WYNSCategory.h */,
 			);
 			path = NSCategory;
 			sourceTree = "<group>";
@@ -193,11 +196,15 @@
 		5F96713A1849DB06009CCF8C /* UICategory */ = {
 			isa = PBXGroup;
 			children = (
+				5F96713F1849DB06009CCF8C /* WYUIKitCategory.h */,
 				5F96713B1849DB06009CCF8C /* UIAlertView+Block.h */,
 				5F96713C1849DB06009CCF8C /* UIAlertView+Block.m */,
 				5F96713D1849DB06009CCF8C /* UIButton+Block.h */,
 				5F96713E1849DB06009CCF8C /* UIButton+Block.m */,
-				5F96713F1849DB06009CCF8C /* WYUIKitCategory.h */,
+				E23AADF4184A9EB700609645 /* UIColor+Category.h */,
+				E23AADF5184A9EB700609645 /* UIColor+Category.m */,
+				E23AADF7184AA79F00609645 /* UIImage+Category.h */,
+				E23AADF8184AA79F00609645 /* UIImage+Category.m */,
 			);
 			path = UICategory;
 			sourceTree = "<group>";
@@ -280,7 +287,6 @@
 			files = (
 				5F9671171849DA93009CCF8C /* Images.xcassets in Resources */,
 				5F9671091849DA93009CCF8C /* InfoPlist.strings in Resources */,
-				5F9671121849DA93009CCF8C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +312,8 @@
 				5F9671431849DB06009CCF8C /* UIButton+Block.m in Sources */,
 				5F9671411849DB06009CCF8C /* NSString+Category.m in Sources */,
 				5F96710B1849DA93009CCF8C /* main.m in Sources */,
+				E23AADF6184A9EB700609645 /* UIColor+Category.m in Sources */,
+				E23AADF9184AA79F00609645 /* UIImage+Category.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,14 +342,6 @@
 				5F9671081849DA93009CCF8C /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		5F9671101849DA93009CCF8C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5F9671111849DA93009CCF8C /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		5F9671261849DA93009CCF8C /* InfoPlist.strings */ = {
@@ -430,11 +430,13 @@
 		5F96712E1849DA93009CCF8C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WYCategory/WYCategory-Prefix.pch";
 				INFOPLIST_FILE = "WYCategory/WYCategory-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -443,11 +445,13 @@
 		5F96712F1849DA93009CCF8C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WYCategory/WYCategory-Prefix.pch";
 				INFOPLIST_FILE = "WYCategory/WYCategory-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -514,6 +518,7 @@
 				5F96712F1849DA93009CCF8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5F9671301849DA93009CCF8C /* Build configuration list for PBXNativeTarget "WYCategoryTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +527,7 @@
 				5F9671321849DA93009CCF8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
