@@ -24,8 +24,13 @@
 		5F9671411849DB06009CCF8C /* NSString+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9671381849DB06009CCF8C /* NSString+Category.m */; };
 		5F9671421849DB06009CCF8C /* UIAlertView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F96713C1849DB06009CCF8C /* UIAlertView+Block.m */; };
 		5F9671431849DB06009CCF8C /* UIButton+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F96713E1849DB06009CCF8C /* UIButton+Block.m */; };
+<<<<<<< HEAD
 		E23AADF6184A9EB700609645 /* UIColor+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = E23AADF5184A9EB700609645 /* UIColor+Category.m */; };
 		E23AADF9184AA79F00609645 /* UIImage+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = E23AADF8184AA79F00609645 /* UIImage+Category.m */; };
+=======
+		5FF2C07D184B37ED005F4C5B /* NSObject+Reflect.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2C07C184B37ED005F4C5B /* NSObject+Reflect.m */; };
+		5FF2C080184B3803005F4C5B /* WYReflectBaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2C07F184B3803005F4C5B /* WYReflectBaseObject.m */; };
+>>>>>>> 1b6daae70c9fe363bfa8086ff28191af2d07b7a4
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,10 +73,17 @@
 		5F96713E1849DB06009CCF8C /* UIButton+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Block.m"; sourceTree = "<group>"; };
 		5F96713F1849DB06009CCF8C /* WYUIKitCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYUIKitCategory.h; sourceTree = "<group>"; };
 		5F9671441849DB16009CCF8C /* WYCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYCategory.h; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		E23AADF4184A9EB700609645 /* UIColor+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Category.h"; sourceTree = "<group>"; };
 		E23AADF5184A9EB700609645 /* UIColor+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Category.m"; sourceTree = "<group>"; };
 		E23AADF7184AA79F00609645 /* UIImage+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Category.h"; sourceTree = "<group>"; };
 		E23AADF8184AA79F00609645 /* UIImage+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Category.m"; sourceTree = "<group>"; };
+=======
+		5FF2C07B184B37ED005F4C5B /* NSObject+Reflect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Reflect.h"; sourceTree = "<group>"; };
+		5FF2C07C184B37ED005F4C5B /* NSObject+Reflect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Reflect.m"; sourceTree = "<group>"; };
+		5FF2C07E184B3803005F4C5B /* WYReflectBaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYReflectBaseObject.h; sourceTree = "<group>"; };
+		5FF2C07F184B3803005F4C5B /* WYReflectBaseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYReflectBaseObject.m; sourceTree = "<group>"; };
+>>>>>>> 1b6daae70c9fe363bfa8086ff28191af2d07b7a4
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +143,8 @@
 		5F9671041849DA93009CCF8C /* WYCategory */ = {
 			isa = PBXGroup;
 			children = (
+				5FF2C07E184B3803005F4C5B /* WYReflectBaseObject.h */,
+				5FF2C07F184B3803005F4C5B /* WYReflectBaseObject.m */,
 				5F9671331849DB06009CCF8C /* WYCategory */,
 				5F96710D1849DA93009CCF8C /* AppDelegate.h */,
 				5F96710E1849DA93009CCF8C /* AppDelegate.m */,
@@ -184,7 +198,12 @@
 		5F9671341849DB06009CCF8C /* NSCategory */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				5F9671391849DB06009CCF8C /* WYNSCategory.h */,
+=======
+				5FF2C07B184B37ED005F4C5B /* NSObject+Reflect.h */,
+				5FF2C07C184B37ED005F4C5B /* NSObject+Reflect.m */,
+>>>>>>> 1b6daae70c9fe363bfa8086ff28191af2d07b7a4
 				5F9671351849DB06009CCF8C /* NSData+Category.h */,
 				5F9671361849DB06009CCF8C /* NSData+Category.m */,
 				5F9671371849DB06009CCF8C /* NSString+Category.h */,
@@ -312,8 +331,13 @@
 				5F9671431849DB06009CCF8C /* UIButton+Block.m in Sources */,
 				5F9671411849DB06009CCF8C /* NSString+Category.m in Sources */,
 				5F96710B1849DA93009CCF8C /* main.m in Sources */,
+<<<<<<< HEAD
 				E23AADF6184A9EB700609645 /* UIColor+Category.m in Sources */,
 				E23AADF9184AA79F00609645 /* UIImage+Category.m in Sources */,
+=======
+				5FF2C07D184B37ED005F4C5B /* NSObject+Reflect.m in Sources */,
+				5FF2C080184B3803005F4C5B /* WYReflectBaseObject.m in Sources */,
+>>>>>>> 1b6daae70c9fe363bfa8086ff28191af2d07b7a4
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
