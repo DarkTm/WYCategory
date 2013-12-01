@@ -18,4 +18,7 @@
 - (NSString *)base64DecodedString;
 - (NSData *)base64DecodedData;
 
+
++(NSString *)getFolderWithType:(NSSearchPathDirectory)type;
+
 @end

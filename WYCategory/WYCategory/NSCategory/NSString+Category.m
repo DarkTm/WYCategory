@@ -56,4 +56,10 @@
     return [NSData dataWithBase64EncodedString:self];
 }
 
+
++(NSString *)getFolderWithType:(NSSearchPathDirectory)type{
+
+    return [NSSearchPathForDirectoriesInDomains(type, NSUserDomainMask, YES) objectAtIndex:0];
+}
+
 @end

@@ -24,8 +24,11 @@
     [UIAlertView showAlertViewWithTitle:@"" withMessage:@"" withAction:^(NSInteger index) {
         NSLog(@"%d",index);
     }];
-    
-//    [NSJSONSerialization];
+
+
+    DLog(@"%@",[NSString getFolderWithType:NSDocumentDirectory]);
+    DLog(@"%@",[NSString getFolderWithType:NSCachesDirectory]);
+    DLog(@"%@",[NSString getFolderWithType:NSLibraryDirectory]);
     
 }
 
