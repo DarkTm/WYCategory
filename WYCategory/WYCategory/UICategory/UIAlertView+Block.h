@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
 typedef void (^WYUIAlertViewBlock)(NSInteger index);
 
 @interface UIAlertView (Block)<UIAlertViewDelegate>
