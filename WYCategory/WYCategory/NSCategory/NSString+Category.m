@@ -13,8 +13,9 @@
 
 @implementation NSString (Category)
 
-- (NSString *) md5
-{
+#pragma mark /*编码*/
+
+- (NSString *) md5{
     const char *cStr = [self UTF8String];
     unsigned char result[16];
     CC_MD5( cStr, strlen(cStr),result );
@@ -24,8 +25,20 @@
     return [hash uppercaseString];
 }
 
-+ (NSString *)stringWithBase64EncodedString:(NSString *)string
-{
+- (NSData *)base64DecodedData{
+    return [NSData dataWithBase64EncodedString:self];
+}
+
+- (NSString *)base64EncodedString{
+    NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+    return [data base64EncodedString];
+}
+
+- (NSString *)base64DecodedString{
+    return [NSString stringWithBase64EncodedString:self];
+}
+
++ (NSString *)stringWithBase64EncodedString:(NSString *)string{
     NSData *data = [NSData dataWithBase64EncodedString:string];
     if (data)
     {
@@ -34,32 +47,18 @@
     return nil;
 }
 
-- (NSString *)base64EncodedStringWithWrapWidth:(NSUInteger)wrapWidth
-{
+- (NSString *)base64EncodedStringWithWrapWidth:(NSUInteger)wrapWidth{
     NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
     return [data base64EncodedStringWithWrapWidth:wrapWidth];
 }
 
-- (NSString *)base64EncodedString
-{
-    NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
-    return [data base64EncodedString];
-}
-
-- (NSString *)base64DecodedString
-{
-    return [NSString stringWithBase64EncodedString:self];
-}
-
-- (NSData *)base64DecodedData
-{
-    return [NSData dataWithBase64EncodedString:self];
-}
-
+#pragma  mark /*路径*/
 
 +(NSString *)getFolderWithType:(NSSearchPathDirectory)type{
 
     return [NSSearchPathForDirectoriesInDomains(type, NSUserDomainMask, YES) objectAtIndex:0];
 }
+
+
 
 @end

@@ -11,7 +11,6 @@
 
 #import "NSString+Category.h"
 #import "NSData+Category.h"
-
-#define DLog(Tm, ...) NSLog((@"%s" "[line:%d]" Tm),__FUNCTION__, __LINE__, ##__VA_ARGS__);
+#import "NSObject+Category.h"
 
 #endif

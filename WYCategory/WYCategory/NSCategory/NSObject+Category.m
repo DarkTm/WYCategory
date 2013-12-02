@@ -6,10 +6,13 @@
 //  Copyright (c) 2013年 3TI. All rights reserved.
 //
 
-#import "NSObject+Reflect.h"
+#import "NSObject+Category.h"
 #import <objc/runtime.h>
+#import "NSString+Category.h"
 
-@implementation NSObject (Reflect)
+@implementation NSObject (Category)
+
+#pragma  mark Reflect /*反射*/
 
 -(id)initWithReflectData:(NSDictionary *)aDic{
     
@@ -50,7 +53,6 @@
     return self;
 }
 
-
 -(NSMutableDictionary *)dictFromObject {
     
     NSMutableDictionary *dictReturn = [[NSMutableDictionary alloc] init];
@@ -69,6 +71,44 @@
     }
     free(vars);
     return dictReturn;
+}
+
+
+#pragma  mark Archiver /*归档*/
+
++(id)unArchiverWithPath:(NSString *)path{
+    
+    NSAssert(path != nil && path.length != 0, @"path is not nil");
+    
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    
+    NSKeyedUnarchiver *unArchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+    
+    id archiverObj = [unArchiver decodeObjectForKey:[path md5]];
+    
+    [unArchiver finishDecoding];
+    
+    return archiverObj;
+}
+
++(void)archiverWithObj:(id)obj withPath:(NSString *)path{
+    
+    if(obj == nil){
+        
+        [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
+        NSLog(@"%@ : because obj is nil , so remove file from %@",[self class],path);
+        return;
+    }
+    
+    NSMutableData *d = [NSMutableData data];
+    
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:d];
+    
+    [archiver encodeObject:obj forKey:[path md5]];
+    
+    [archiver finishEncoding];
+    
+    [d writeToFile:path atomically:YES];
 }
 
 @end

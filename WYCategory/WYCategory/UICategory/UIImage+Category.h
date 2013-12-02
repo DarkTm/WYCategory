@@ -16,8 +16,6 @@
 
 - (UIImage *)imageCropped:(CGRect)bounds;
 
-
-
 - (UIImage *)imageRotatedByDegrees:(CGFloat)degrees;
 
 - (UIImage *)imageRotatedByAngle:(CGFloat)angle;

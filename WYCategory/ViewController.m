@@ -26,11 +26,16 @@
     }];
 
 
-    DLog(@"%@",[NSString getFolderWithType:NSDocumentDirectory]);
-    DLog(@"%@",[NSString getFolderWithType:NSCachesDirectory]);
-    DLog(@"%@",[NSString getFolderWithType:NSLibraryDirectory]);
+//    DLog(@"%@",[NSString getFolderWithType:NSDocumentDirectory]);
+//    DLog(@"%@",[NSString getFolderWithType:NSCachesDirectory]);
+//    DLog(@"%@",[NSString getFolderWithType:NSLibraryDirectory]);
+    
+    
+    DLog(@"%@",[NSObject unArchiverWithPath:@""]);
     
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {

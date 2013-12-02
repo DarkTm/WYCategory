@@ -10,8 +10,7 @@
 
 @implementation NSData (Category)
 
-+ (NSData *)dataWithBase64EncodedString:(NSString *)string
-{
++ (NSData *)dataWithBase64EncodedString:(NSString *)string{
     const char lookup[] =
     {
         99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99,
@@ -61,8 +60,7 @@
     return outputLength? outputData: nil;
 }
 
-- (NSString *)base64EncodedStringWithWrapWidth:(NSUInteger)wrapWidth
-{
+- (NSString *)base64EncodedStringWithWrapWidth:(NSUInteger)wrapWidth{
     //ensure wrapWidth is a multiple of 4
     wrapWidth = (wrapWidth / 4) * 4;
     
@@ -126,9 +124,9 @@
     return nil;
 }
 
-- (NSString *)base64EncodedString
-{
+- (NSString *)base64EncodedString{
     return [self base64EncodedStringWithWrapWidth:0];
 }
+
 
 @end

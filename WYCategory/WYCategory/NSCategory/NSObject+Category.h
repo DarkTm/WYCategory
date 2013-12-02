@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSObject (Reflect)
+@interface NSObject (Category)
 
 -(id)initWithReflectData:(NSDictionary *)aDic;
-
 -(NSMutableDictionary *)dictFromObject;
+
++(id)unArchiverWithPath:(NSString *)path;
++(void)archiverWithObj:(id)obj withPath:(NSString *)path;
 
 @end

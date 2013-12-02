@@ -14,4 +14,6 @@
 - (NSString *)base64EncodedStringWithWrapWidth:(NSUInteger)wrapWidth;
 - (NSString *)base64EncodedString;
 
+
+
 @end
