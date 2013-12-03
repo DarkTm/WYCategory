@@ -10,9 +10,9 @@
 
 @interface UIImage (Category)
 
-+ (UIImage*)imageConverToSize:(UIImage*)image scaledToSize:(CGSize)newSize;
++ (UIImage *)imageConverToSize:(UIImage*)image scaledToSize:(CGSize)newSize;
 
-- (UIImage*)imageConverToSize:(CGSize)newSize;
+- (UIImage *)imageConverToSize:(CGSize)newSize;
 
 - (UIImage *)imageCropped:(CGRect)bounds;
 
