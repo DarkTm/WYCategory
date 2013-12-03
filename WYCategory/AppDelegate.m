@@ -9,12 +9,15 @@
 #import "AppDelegate.h"
 
 #import "ViewController.h"
+#import "WYUncaughtExceptionHandler.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    InstallUncaughtExceptionHandler();
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];

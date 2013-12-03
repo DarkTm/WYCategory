@@ -28,6 +28,7 @@
 		5FF2C080184B3803005F4C5B /* WYReflectBaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2C07F184B3803005F4C5B /* WYReflectBaseObject.m */; };
 		E23AADF6184A9EB700609645 /* UIColor+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = E23AADF5184A9EB700609645 /* UIColor+Category.m */; };
 		E23AADF9184AA79F00609645 /* UIImage+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = E23AADF8184AA79F00609645 /* UIImage+Category.m */; };
+		E2F34864184D5E490059A0CC /* WYUncaughtExceptionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F34863184D5E490059A0CC /* WYUncaughtExceptionHandler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,8 @@
 		E23AADF5184A9EB700609645 /* UIColor+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Category.m"; sourceTree = "<group>"; };
 		E23AADF7184AA79F00609645 /* UIImage+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Category.h"; sourceTree = "<group>"; };
 		E23AADF8184AA79F00609645 /* UIImage+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Category.m"; sourceTree = "<group>"; };
+		E2F34862184D5E490059A0CC /* WYUncaughtExceptionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYUncaughtExceptionHandler.h; sourceTree = "<group>"; };
+		E2F34863184D5E490059A0CC /* WYUncaughtExceptionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYUncaughtExceptionHandler.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +140,8 @@
 		5F9671041849DA93009CCF8C /* WYCategory */ = {
 			isa = PBXGroup;
 			children = (
+				E2F34862184D5E490059A0CC /* WYUncaughtExceptionHandler.h */,
+				E2F34863184D5E490059A0CC /* WYUncaughtExceptionHandler.m */,
 				5FF2C07E184B3803005F4C5B /* WYReflectBaseObject.h */,
 				5FF2C07F184B3803005F4C5B /* WYReflectBaseObject.m */,
 				5F9671331849DB06009CCF8C /* WYCategory */,
@@ -326,6 +331,7 @@
 				E23AADF9184AA79F00609645 /* UIImage+Category.m in Sources */,
 				5FF2C07D184B37ED005F4C5B /* NSObject+Category.m in Sources */,
 				5FF2C080184B3803005F4C5B /* WYReflectBaseObject.m in Sources */,
+				E2F34864184D5E490059A0CC /* WYUncaughtExceptionHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

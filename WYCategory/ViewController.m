@@ -22,7 +22,9 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     [UIAlertView showAlertViewWithTitle:@"" withMessage:@"" withAction:^(NSInteger index) {
-        NSLog(@"%d",index);
+        NSArray *a = [NSArray arrayWithObject:@"adf"];
+        
+        DLog(@"%@",a[2]);
     }];
 
 
@@ -30,12 +32,9 @@
 //    DLog(@"%@",[NSString getFolderWithType:NSCachesDirectory]);
 //    DLog(@"%@",[NSString getFolderWithType:NSLibraryDirectory]);
     
-    
-    DLog(@"%@",[NSObject unArchiverWithPath:@""]);
+        
     
 }
-
-
 
 - (void)didReceiveMemoryWarning
 {
