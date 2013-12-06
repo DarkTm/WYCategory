@@ -13,5 +13,6 @@
 #import "UIAlertView+Block.h"
 #import "UIColor+Category.h"
 #import "UIImage+Category.h"
+#import "UINavigationController+Animation.h"
 
 #endif

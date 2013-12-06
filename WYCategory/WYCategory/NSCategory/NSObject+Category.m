@@ -12,7 +12,31 @@
 
 @implementation NSObject (Category)
 
-#pragma  mark Reflect /*反射*/
+
+#pragma  mark -
+#pragma  mark  Reflect /*反射*/
+
+-(NSMutableArray *)getAttributeList{
+    
+    NSMutableArray *dictReturn = [[NSMutableArray alloc] initWithCapacity:10];
+    
+    unsigned int varCount;
+    Ivar *vars = class_copyIvarList([self class], &varCount);
+    
+    for (unsigned int i = 0; i < varCount; i++) {
+        Ivar var = vars[i];
+        NSString *propertyName = [NSString stringWithFormat:@"%s",ivar_getName(var)];
+        if ([propertyName hasPrefix:@"_"]) {
+            propertyName =[propertyName substringWithRange:NSMakeRange(1, propertyName.length - 1)];
+        }
+        NSLog(@"%@",propertyName);
+        [dictReturn addObject:propertyName];
+    }
+    free(vars);
+    return dictReturn;
+}
+
+
 
 -(id)initWithReflectData:(NSDictionary *)aDic{
     
@@ -66,15 +90,18 @@
         if ([propertyName hasPrefix:@"_"]) {
             propertyName =[propertyName substringWithRange:NSMakeRange(1, propertyName.length - 1)];
         }
-        
         [dictReturn setValue:object_getIvar(self, var) forKey:propertyName];
     }
     free(vars);
+    
+    NSLog(@"[%@] %s:%@",[self class],__func__, dictReturn);
+    
     return dictReturn;
 }
 
 
-#pragma  mark Archiver /*归档*/
+#pragma  mark -
+#pragma  mark  Archiver /*归档*/
 
 +(id)unArchiverWithPath:(NSString *)path{
     

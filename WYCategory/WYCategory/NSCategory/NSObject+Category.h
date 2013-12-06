@@ -13,6 +13,8 @@
 -(id)initWithReflectData:(NSDictionary *)aDic;
 -(NSMutableDictionary *)dictFromObject;
 
+-(NSMutableArray *)getAttributeList;
+
 +(id)unArchiverWithPath:(NSString *)path;
 +(void)archiverWithObj:(id)obj withPath:(NSString *)path;
 

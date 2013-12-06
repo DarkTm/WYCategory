@@ -52,6 +52,7 @@
     return [data base64EncodedStringWithWrapWidth:wrapWidth];
 }
 
+#pragma  mark -
 #pragma  mark /*路径*/
 
 +(NSString *)getFolderWithType:(NSSearchPathDirectory)type{
