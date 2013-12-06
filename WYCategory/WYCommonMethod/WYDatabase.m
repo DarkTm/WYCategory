@@ -22,6 +22,8 @@
 
 -(BOOL)isTableExists:(NSString *)aTableName;
 
+-(NSArray *)getSearchCloumnWithSql:(NSString *)aSql;
+
 @end
 
 const float WYDatabaseCloseRetryDuration = 10.0;
@@ -63,7 +65,7 @@ const float WYDatabaseCloseRetryDuration = 10.0;
     
     if(err != SQLITE_OK){
     
-        NSLog(@"error open db ! err code = %d",err);
+        DLog(@"error open db ! err code = %d",err);
         
         return NO;
     }
@@ -93,7 +95,7 @@ const float WYDatabaseCloseRetryDuration = 10.0;
             
             if (!numberOfRetries) {
                 
-                NSLog(@"%s:%d >>> Database busy, unable to close", __FUNCTION__, __LINE__);
+                DLog(@"%s:%d >>> Database busy, unable to close", __FUNCTION__, __LINE__);
                 
                 return NO;
             }
@@ -106,7 +108,7 @@ const float WYDatabaseCloseRetryDuration = 10.0;
                 
                 while ((pStmt = sqlite3_next_stmt(_db, 0x00)) !=0) {
                     
-                    NSLog(@"Closing leaked statement");
+                    DLog(@"Closing leaked statement");
                     
                     sqlite3_finalize(pStmt);
                 }
@@ -116,7 +118,7 @@ const float WYDatabaseCloseRetryDuration = 10.0;
         }
         else if (SQLITE_OK != rc) {
             
-            NSLog(@"error closing!: %d", rc);
+            DLog(@"error closing!: %d", rc);
             
         }
     }
@@ -298,7 +300,7 @@ const float WYDatabaseCloseRetryDuration = 10.0;
     
     if(SQLITE_OK != sqlite3_prepare_v2(_db, [aSql UTF8String], -1, &pStmt, &err)){
         
-        NSLog(@"%s [%d] error with sql : %@",__func__,__LINE__,aSql);
+        DLog(@"%s [%d] error with sql : %@",__func__,__LINE__,aSql);
         return nil;
     }
     
@@ -362,12 +364,12 @@ const float WYDatabaseCloseRetryDuration = 10.0;
     const char *err;
     sqlite3_stmt *pStmt;
     
-    BOOL bFlag = (aClass == nil ? NO : YES);
+    BOOL bObj = (aClass == nil ? NO : YES);
     
     
     if(SQLITE_OK != sqlite3_prepare_v2(_db, [aSql UTF8String], -1, &pStmt, &err)){
         
-        NSLog(@"%s [%d] error with sql : %@",__func__,__LINE__,aSql);
+        DLog(@"%s [%d] error with sql : %@",__func__,__LINE__,aSql);
         return nil;
     }
     
@@ -375,13 +377,23 @@ const float WYDatabaseCloseRetryDuration = 10.0;
     
     Class obj = aClass;
     
-    if(obj != nil )
+    if(bObj)
     {
         sAttribyte = [obj getAttributeList];
     }
+    
+    if([aSql rangeOfString:@"*"].location == NSNotFound){
+        
+#warning: 可以返回成 obj 对象
+        
+        bObj = NO;
+        
+        sAttribyte = [[NSMutableArray alloc] initWithArray:[self getSearchCloumnWithSql:aSql]];
+    }
+    
    
     DLog(@"%@",aSql);
-    
+
     while (SQLITE_ROW == sqlite3_step(pStmt)) {
         
         NSMutableDictionary *aDic = [[NSMutableDictionary alloc] initWithCapacity:10];
@@ -393,8 +405,8 @@ const float WYDatabaseCloseRetryDuration = 10.0;
             [aDic setValue:[self converCharToString:s] forKey:sAttribyte[i]];
         }
         
-        //转换才对象
-        if(bFlag){
+        //转换成对象
+        if(bObj){
             
             [sArray addObject:[[obj alloc] initWithReflectData:aDic]];
         }else{
@@ -408,7 +420,7 @@ const float WYDatabaseCloseRetryDuration = 10.0;
 
 int sqlite3CallBack( void * para, int n_column, char ** column_value, char ** column_name ){
 
-    NSLog(@"sqlite3CallBack [%s][%d][%s][%s]",para,n_column,*column_value,*column_name);
+    DLog(@"sqlite3CallBack [%s][%d][%s][%s]",para,n_column,*column_value,*column_name);
     return 1;
 }
 
@@ -416,7 +428,7 @@ int sqlite3CallBack( void * para, int n_column, char ** column_value, char ** co
 
     if(aSql == nil || aSql.length == 0){
     
-        NSLog(@"bad sql : %@",aSql);
+        DLog(@"bad sql : %@",aSql);
         return NO;
     }
     
@@ -426,11 +438,12 @@ int sqlite3CallBack( void * para, int n_column, char ** column_value, char ** co
     
     if(err){
     
-        NSLog(@"%s [%d] error with sql : %@",__func__,__LINE__,aSql);
+        DLog(@"%s [%d] error with sql : %@",__func__,__LINE__,aSql);
         return NO;
     }
     if(rc == SQLITE_OK){
-        NSLog(@"success with sql : %@",aSql);
+        
+        DLog(@"success with sql : %@",aSql);
     }
     return YES;
     
@@ -459,6 +472,29 @@ int sqlite3CallBack( void * para, int n_column, char ** column_value, char ** co
     Class rClass = NSClassFromString(tableName);
     
     return rClass;
+}
+
+-(NSArray *)getSearchCloumnWithSql:(NSString *)aSql{
+
+    NSString *sCloumn = nil;
+    NSString *sql = [aSql copy];
+    sql = [sql stringByReplacingOccurrencesOfString:@" " withString:@""];
+
+    NSRange rangeFrom = [sql rangeOfString:@"from" options:NSCaseInsensitiveSearch];
+    
+    @try {
+        
+        NSRange subRange = NSMakeRange(6, rangeFrom.location - 6);
+        sCloumn = [sql substringWithRange:subRange];
+        
+        return [sCloumn componentsSeparatedByString:@","];
+    }
+    @catch (NSException *exception) {
+        DLog(@"%@",exception);
+    }
+    @finally {
+        return nil;
+    }
 }
 
 -(NSString *)converCharToString:(char *)pChar{

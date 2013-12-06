@@ -19,11 +19,11 @@
     BOOL _isTransaction;
 }
 
-+ (instancetype)openDatabaseWitPath:(NSString*)aPath;
++(instancetype)openDatabaseWitPath:(NSString*)aPath;
 
-+ (instancetype)databaseWithPath:(NSString*)aPath;
++(instancetype)databaseWithPath:(NSString*)aPath;
 
-- (instancetype)initWithPath:(NSString*)aPath;
+-(instancetype)initWithPath:(NSString*)aPath;
 
 -(BOOL)open;
 
@@ -52,12 +52,12 @@
 -(NSString *)queryWithSql:(NSString *)aSql columnIndex:(NSInteger)aIndex;
 
 
-- (sqlite_int64)lastInsertRowId;
+-(sqlite_int64)lastInsertRowId;
 
-- (BOOL)beginTransaction;
+-(BOOL)beginTransaction;
 
-- (BOOL)commit;
+-(BOOL)commit;
 
-- (BOOL)rollback;
+-(BOOL)rollback;
 
 @end
