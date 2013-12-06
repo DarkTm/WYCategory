@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>15375A45-0BC2-44D2-9454-5BB80241B1F2</string>
+	<key>IDESourceControlProjectName</key>
+	<string>WYCategory</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DF88714A-C924-4211-8577-85B002C6286F</key>
+		<string>https://github.com/HapBoy10/WYCategory.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>WYCategory.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DF88714A-C924-4211-8577-85B002C6286F</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/HapBoy10/WYCategory.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DF88714A-C924-4211-8577-85B002C6286F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DF88714A-C924-4211-8577-85B002C6286F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>WYCategory</string>
+		</dict>
+	</array>
+</dict>
+</plist>
