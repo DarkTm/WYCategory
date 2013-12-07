@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F89ABB11852E279005778F7 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F89ABB01852E279005778F7 /* ViewController.xib */; };
 		5F9670FF1849DA93009CCF8C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9670FE1849DA93009CCF8C /* Foundation.framework */; };
 		5F9671011849DA93009CCF8C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9671001849DA93009CCF8C /* CoreGraphics.framework */; };
 		5F9671031849DA93009CCF8C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9671021849DA93009CCF8C /* UIKit.framework */; };
@@ -35,7 +36,6 @@
 		E2F9D58718512BFC00690DA9 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F9D58618512BFC00690DA9 /* libsqlite3.dylib */; };
 		E2F9D58B18512C8900690DA9 /* WYDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F9D58A18512C8900690DA9 /* WYDatabase.m */; };
 		E2F9D594185151C600690DA9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F9D592185151C600690DA9 /* ViewController.m */; };
-		E2F9D595185151C600690DA9 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2F9D593185151C600690DA9 /* ViewController.xib */; };
 		E2F9D5981851564400690DA9 /* DBObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F9D5971851564400690DA9 /* DBObject.m */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5F89ABB01852E279005778F7 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		5F9670FB1849DA93009CCF8C /* WYCategory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WYCategory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F9670FE1849DA93009CCF8C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5F9671001849DA93009CCF8C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -99,7 +100,6 @@
 		E2F9D58A18512C8900690DA9 /* WYDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYDatabase.m; sourceTree = "<group>"; };
 		E2F9D591185151C500690DA9 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		E2F9D592185151C600690DA9 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		E2F9D593185151C600690DA9 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		E2F9D5961851564300690DA9 /* DBObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBObject.h; sourceTree = "<group>"; };
 		E2F9D5971851564400690DA9 /* DBObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -175,7 +175,7 @@
 				E2F9D5971851564400690DA9 /* DBObject.m */,
 				E2F9D591185151C500690DA9 /* ViewController.h */,
 				E2F9D592185151C600690DA9 /* ViewController.m */,
-				E2F9D593185151C600690DA9 /* ViewController.xib */,
+				5F89ABB01852E279005778F7 /* ViewController.xib */,
 				5F9671161849DA93009CCF8C /* Images.xcassets */,
 				5F9671051849DA93009CCF8C /* Supporting Files */,
 			);
@@ -362,7 +362,7 @@
 			files = (
 				5F9671171849DA93009CCF8C /* Images.xcassets in Resources */,
 				5F9671091849DA93009CCF8C /* InfoPlist.strings in Resources */,
-				E2F9D595185151C600690DA9 /* ViewController.xib in Resources */,
+				5F89ABB11852E279005778F7 /* ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

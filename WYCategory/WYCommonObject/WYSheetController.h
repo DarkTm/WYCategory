@@ -13,6 +13,7 @@ typedef void (^WYUIViewControllerAnimationBlock)(void);
 @interface WYSheetController : UIViewController
 
 @property(strong,nonatomic)UIView *contentView;
+@property(strong,nonatomic,readonly)UIView *bgView;
 
 -(void)customerDismissViewControllerAnimated:(WYUIViewControllerAnimationBlock)aBlock;
 

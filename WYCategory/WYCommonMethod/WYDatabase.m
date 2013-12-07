@@ -385,7 +385,6 @@ const float WYDatabaseCloseRetryDuration = 10.0;
     if([aSql rangeOfString:@"*"].location == NSNotFound){
         
 #warning: 可以返回成 obj 对象
-        
         bObj = NO;
         
         sAttribyte = [[NSMutableArray alloc] initWithArray:[self getSearchCloumnWithSql:aSql]];

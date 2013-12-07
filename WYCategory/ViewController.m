@@ -38,6 +38,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.view.backgroundColor = [UIColor darkGrayColor];
+    
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 100, 100)];
     btn.backgroundColor = [UIColor redColor];
     
@@ -52,12 +54,20 @@
     _db = [WYDatabase openDatabaseWitPath:s];
     
 }
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+
+    [self on_btn:nil];
+}
+
 - (IBAction)on_btn:(id)sender {
     
     UIView *v = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 100, 200)];
     v.backgroundColor = [UIColor redColor];
 
     WYSheetController *sheet = [[WYSheetController alloc] init];
+    sheet.view.backgroundColor = [UIColor clearColor];
+    
     sheet.contentView = v;
     [sheet customerPresentViewController];
     

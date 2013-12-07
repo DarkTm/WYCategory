@@ -21,6 +21,8 @@
 
 @implementation WYSheetController
 
+@synthesize bgView = _bgView;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -33,7 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
     _bgView = [[UIView alloc] initWithFrame:self.view.bounds];
     _bgView.backgroundColor = [UIColor colorWithRed:.5 green:.5 blue:.5 alpha:.5];
     [self.view addSubview:_bgView];
@@ -41,65 +43,80 @@
 
 
 -(void)customerDismissViewControllerAnimated:(WYUIViewControllerAnimationBlock)aBlock{
-    
-    UIView *bg = _bgView;
-    UIView *content = self.contentView;
-    
+        
     [CATransaction begin];
     
-    [CATransaction setDisableActions:YES];
+    [CATransaction setDisableActions:NO];
     
+    WYSheetController *_weak = self;
     [CATransaction setCompletionBlock:^{
-        aBlock();
+        
+        [_weak dismissViewControllerAnimated:NO completion:NULL];
+        [_weak rootViewController].modalTransitionStyle = UIModalPresentationFullScreen;
+        
+        if(aBlock)
+            aBlock();
     }];
     
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
-    animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(CGRectGetMidX(content.frame), CGRectGetMidY(content.frame))];
-    animation.toValue = [NSValue valueWithCGPoint:CGPointMake(content.center.x, CGRectGetMaxY(self.view.bounds))];
-    animation.duration = .3 ;
-    [content.layer addAnimation:animation forKey:@"animation"];
+    animation.fromValue = [NSValue valueWithCGPoint:self.contentView.center];
+    animation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.contentView.center.x, CGRectGetMaxY(self.view.frame) + 100)];
+    animation.duration = .5 ;
+    
+    
+    NSLog(@"end:%@",[NSValue valueWithCGPoint:CGPointMake(self.contentView.center.x, CGRectGetMaxY(self.view.frame))]);
     
     CABasicAnimation *animationAlpha = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    animationAlpha.fromValue = [NSNumber numberWithFloat:0];
-    animationAlpha.toValue = [NSNumber numberWithFloat:.5];
-    animationAlpha.duration = .3;
-    [bg.layer addAnimation:animationAlpha forKey:@"animationAlpha"];
+    animationAlpha.fromValue = [NSNumber numberWithFloat:0.5];
+    animationAlpha.toValue = [NSNumber numberWithFloat:0];
+    animationAlpha.duration = .5;
+    
+    [self.contentView.layer addAnimation:animation forKey:@"animation"];
+    [_bgView.layer addAnimation:animationAlpha forKey:@"animationAlpha"];
+    
     [CATransaction commit];
-    
-    [[self rootViewController] dismissViewControllerAnimated:YES completion:NULL];
-    
-    [self rootViewController].modalTransitionStyle = UIModalPresentationFullScreen;
 }
 
 -(void)customerPresentViewController{
     
-    [self rootViewController].modalTransitionStyle = UIModalPresentationCurrentContext;
-
-    UIView *bg = _bgView;
-    UIView *content = self.contentView;
+    [self rootViewController].modalPresentationStyle = UIModalPresentationCurrentContext;
     
-    [self.view addSubview:content];
+    [self.view addSubview:self.contentView];
+    
+    
     
     [CATransaction begin];
     
-    [CATransaction setDisableActions:YES];
+    [CATransaction setDisableActions:NO];
+    
+    [CATransaction setCompletionBlock:^{
+        NSLog(@"%@",NSStringFromCGRect(self.contentView.frame));
+    }];
     
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
-    animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(content.center.x, CGRectGetMaxY(self.view.bounds))];
-    animation.toValue = [NSValue valueWithCGPoint:CGPointMake(CGRectGetMidX(content.frame), CGRectGetMidY(content.frame))];
-    animation.duration = .3 ;
-    [content.layer addAnimation:animation forKey:@"animation"];
+    animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(self.contentView.center.x, CGRectGetMaxY(self.view.frame) + 100)];
+    animation.toValue = [NSValue valueWithCGPoint:self.contentView.center];
+    animation.duration = .5 ;
+    
+    
+    NSLog(@"from:%@",[NSValue valueWithCGPoint:CGPointMake(self.contentView.center.x, CGRectGetMaxY(self.view.frame))]);
     
     CABasicAnimation *animationAlpha = [CABasicAnimation animationWithKeyPath:@"opacity"];
     animationAlpha.fromValue = [NSNumber numberWithFloat:0];
     animationAlpha.toValue = [NSNumber numberWithFloat:.5];
-    animationAlpha.duration = .3;
-    [bg.layer addAnimation:animationAlpha forKey:@"animationAlpha"];
-    [CATransaction commit];
+    animationAlpha.duration = .5;
     
-    [[self rootViewController] presentViewController:self animated:YES completion:NULL];
+    [self.contentView.layer addAnimation:animation forKey:@"animation"];
+    [_bgView.layer addAnimation:animationAlpha forKey:@"animationAlpha"];
+    
+    [CATransaction commit];
+    [[self rootViewController] presentViewController:self animated:NO completion:NULL];
 }
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+
+    [self customerDismissViewControllerAnimated:NULL];
+}
 
 -(UIViewController *)rootViewController{
 
