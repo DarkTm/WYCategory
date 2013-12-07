@@ -26,6 +26,7 @@
 		5FF2C07D184B37ED005F4C5B /* NSObject+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2C07C184B37ED005F4C5B /* NSObject+Category.m */; };
 		E23AADF6184A9EB700609645 /* UIColor+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = E23AADF5184A9EB700609645 /* UIColor+Category.m */; };
 		E23AADF9184AA79F00609645 /* UIImage+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = E23AADF8184AA79F00609645 /* UIImage+Category.m */; };
+		E2EFE88F185294E000950EED /* WYSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EFE88E185294E000950EED /* WYSheetController.m */; };
 		E2F9D5781851286000690DA9 /* UINavigationController+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F9D5771851286000690DA9 /* UINavigationController+Animation.m */; };
 		E2F9D57A185128D100690DA9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F9D579185128D100690DA9 /* QuartzCore.framework */; };
 		E2F9D5801851293800690DA9 /* WYReflectBaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F9D57D1851293800690DA9 /* WYReflectBaseObject.m */; };
@@ -33,7 +34,6 @@
 		E2F9D5851851298500690DA9 /* WYCutomerImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F9D5841851298500690DA9 /* WYCutomerImageView.m */; };
 		E2F9D58718512BFC00690DA9 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F9D58618512BFC00690DA9 /* libsqlite3.dylib */; };
 		E2F9D58B18512C8900690DA9 /* WYDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F9D58A18512C8900690DA9 /* WYDatabase.m */; };
-		E2F9D58E18513C1900690DA9 /* NSMutableArray+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F9D58D18513C1900690DA9 /* NSMutableArray+Category.m */; };
 		E2F9D594185151C600690DA9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F9D592185151C600690DA9 /* ViewController.m */; };
 		E2F9D595185151C600690DA9 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2F9D593185151C600690DA9 /* ViewController.xib */; };
 		E2F9D5981851564400690DA9 /* DBObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F9D5971851564400690DA9 /* DBObject.m */; };
@@ -83,6 +83,8 @@
 		E23AADF5184A9EB700609645 /* UIColor+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Category.m"; sourceTree = "<group>"; };
 		E23AADF7184AA79F00609645 /* UIImage+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Category.h"; sourceTree = "<group>"; };
 		E23AADF8184AA79F00609645 /* UIImage+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Category.m"; sourceTree = "<group>"; };
+		E2EFE88D185294E000950EED /* WYSheetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYSheetController.h; sourceTree = "<group>"; };
+		E2EFE88E185294E000950EED /* WYSheetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYSheetController.m; sourceTree = "<group>"; };
 		E2F9D5761851286000690DA9 /* UINavigationController+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Animation.h"; sourceTree = "<group>"; };
 		E2F9D5771851286000690DA9 /* UINavigationController+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Animation.m"; sourceTree = "<group>"; };
 		E2F9D579185128D100690DA9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -95,8 +97,6 @@
 		E2F9D58618512BFC00690DA9 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		E2F9D58918512C8900690DA9 /* WYDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYDatabase.h; sourceTree = "<group>"; };
 		E2F9D58A18512C8900690DA9 /* WYDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYDatabase.m; sourceTree = "<group>"; };
-		E2F9D58C18513C1900690DA9 /* NSMutableArray+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Category.h"; sourceTree = "<group>"; };
-		E2F9D58D18513C1900690DA9 /* NSMutableArray+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Category.m"; sourceTree = "<group>"; };
 		E2F9D591185151C500690DA9 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		E2F9D592185151C600690DA9 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E2F9D593185151C600690DA9 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
@@ -231,8 +231,6 @@
 				5F9671361849DB06009CCF8C /* NSData+Category.m */,
 				5F9671371849DB06009CCF8C /* NSString+Category.h */,
 				5F9671381849DB06009CCF8C /* NSString+Category.m */,
-				E2F9D58C18513C1900690DA9 /* NSMutableArray+Category.h */,
-				E2F9D58D18513C1900690DA9 /* NSMutableArray+Category.m */,
 			);
 			path = NSCategory;
 			sourceTree = "<group>";
@@ -262,6 +260,8 @@
 				E2F9D57D1851293800690DA9 /* WYReflectBaseObject.m */,
 				E2F9D57E1851293800690DA9 /* WYUncaughtExceptionHandler.h */,
 				E2F9D57F1851293800690DA9 /* WYUncaughtExceptionHandler.m */,
+				E2EFE88D185294E000950EED /* WYSheetController.h */,
+				E2EFE88E185294E000950EED /* WYSheetController.m */,
 			);
 			path = WYCommonObject;
 			sourceTree = "<group>";
@@ -395,9 +395,9 @@
 				E2F9D5811851293800690DA9 /* WYUncaughtExceptionHandler.m in Sources */,
 				E2F9D5851851298500690DA9 /* WYCutomerImageView.m in Sources */,
 				E2F9D58B18512C8900690DA9 /* WYDatabase.m in Sources */,
-				E2F9D58E18513C1900690DA9 /* NSMutableArray+Category.m in Sources */,
 				E2F9D594185151C600690DA9 /* ViewController.m in Sources */,
 				E2F9D5981851564400690DA9 /* DBObject.m in Sources */,
+				E2EFE88F185294E000950EED /* WYSheetController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

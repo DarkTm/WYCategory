@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 
 
-typedef void (^WYUIButtonBlock)(NSInteger tag);
+typedef void (^WYUIButtonBlock)(UIButton *btn);
 
 @interface UIButton (Block)
 
--(void)addActionHandler:(void (^)(NSInteger tag))touchHandler;
+-(void)addActionHandler:(void (^)(UIButton *btn))touchHandler;
 
 
 @end

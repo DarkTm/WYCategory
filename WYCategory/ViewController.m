@@ -13,6 +13,7 @@
 
 #import "DBObject.h"
 
+#import "WYSheetController.h"
 @interface ViewController ()
 {
 
@@ -37,12 +38,30 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 100, 100)];
+    btn.backgroundColor = [UIColor redColor];
+    
+    [btn addActionHandler:^(UIButton *btn) {
+        ;
+    }];
+    
+    [self.view addSubview:btn];
+    
+    return;
     NSString *s = [[NSString getFolderWithType:NSDocumentDirectory] stringByAppendingPathComponent:@"db.sqlite"];
     _db = [WYDatabase openDatabaseWitPath:s];
     
 }
 - (IBAction)on_btn:(id)sender {
-        
+    
+    UIView *v = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 100, 200)];
+    v.backgroundColor = [UIColor redColor];
+
+    WYSheetController *sheet = [[WYSheetController alloc] init];
+    sheet.contentView = v;
+    [sheet customerPresentViewController];
+    
+    return;
 //    [_db createTableWithSql:self.txt.text];
     NSLog(@"%@",[[[DBObject alloc] init] getAttributeList]);
     

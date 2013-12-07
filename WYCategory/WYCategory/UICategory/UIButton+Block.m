@@ -9,22 +9,22 @@
 #import "UIButton+Block.h"
 #import <objc/runtime.h>
 
-static char WYUIButtonBlockKey;
+static char *WYUIButtonBlockKey = "WYUIButtonBlockKey";
 
 @implementation UIButton (Block)
 
--(void)addActionHandler:(void (^)(NSInteger))touchHandler{
+-(void)addActionHandler:(void (^)(UIButton *))touchHandler{
 
-    objc_setAssociatedObject(self, &WYUIButtonBlockKey, touchHandler, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    objc_setAssociatedObject(self, WYUIButtonBlockKey, touchHandler, OBJC_ASSOCIATION_COPY_NONATOMIC);
     [self addTarget:self action:@selector(on_btn:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 
 -(void)on_btn:(UIButton *)btn{
 
-    WYUIButtonBlock block = objc_getAssociatedObject(self, &WYUIButtonBlockKey);
+    WYUIButtonBlock block = objc_getAssociatedObject(self, WYUIButtonBlockKey);
     
-    block(btn.tag);
+    block(btn);
 }
 
 @end
