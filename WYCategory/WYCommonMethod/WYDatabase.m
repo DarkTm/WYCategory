@@ -8,8 +8,6 @@
 
 #import "WYDatabase.h"
 
-
-
 @interface WYDatabase()
 
 -(BOOL)executeWithSql:(NSString *)aSql;
@@ -31,7 +29,7 @@ const float WYDatabaseCloseRetryDuration = 10.0;
 
 @implementation WYDatabase
 
-+ (instancetype)openDatabaseWitPath:(NSString*)aPath{
++(instancetype)openDatabaseWitPath:(NSString*)aPath{
     
     WYDatabase *db = [[self alloc] initWithPath:aPath];
     
@@ -40,11 +38,11 @@ const float WYDatabaseCloseRetryDuration = 10.0;
     return nil;
 }
 
-+ (instancetype)databaseWithPath:(NSString*)aPath{
++(instancetype)databaseWithPath:(NSString*)aPath{
     return [[self alloc] initWithPath:aPath];
 }
 
-- (instancetype)initWithPath:(NSString*)aPath{
+-(instancetype)initWithPath:(NSString*)aPath{
     
     self = [super init];
     
@@ -65,7 +63,7 @@ const float WYDatabaseCloseRetryDuration = 10.0;
     
     if(err != SQLITE_OK){
     
-        DLog(@"error open db ! err code = %d",err);
+        DLog(@"【Error】 open db ! err code = %d",err);
         
         return NO;
     }
@@ -95,7 +93,7 @@ const float WYDatabaseCloseRetryDuration = 10.0;
             
             if (!numberOfRetries) {
                 
-                DLog(@"%s:%d >>> Database busy, unable to close", __FUNCTION__, __LINE__);
+                DLog(@"【Error】 Database busy, unable to close");
                 
                 return NO;
             }
@@ -118,7 +116,7 @@ const float WYDatabaseCloseRetryDuration = 10.0;
         }
         else if (SQLITE_OK != rc) {
             
-            DLog(@"error closing!: %d", rc);
+            DLog(@"【Error】 closing!: %d", rc);
             
         }
     }
@@ -128,8 +126,7 @@ const float WYDatabaseCloseRetryDuration = 10.0;
     return YES;
 }
 
-#pragma  mark -
-#pragma  mark /*用对象来创建数据表*/
+#pragma  mark - /*用对象来创建数据表*/
 
 -(BOOL)createTableWithObj:(id)aObj{
 
@@ -165,18 +162,15 @@ const float WYDatabaseCloseRetryDuration = 10.0;
     return [self executeWithSql:aSql];
 }
 
--(BOOL)insertWithObjValue:(NSArray *)aValue tableName:(NSString *)aTableName{
+-(BOOL)insertWithObjValue:(NSArray *)aValue tableName:(Class)className{
 
     if(aValue == nil || aValue.count == 0) {
     
-        DLog(@"error");
+        DLog(@"【Error】");
         return NO;
     }
-    
-    NSString *tableName = nil;
-    
-    //todo 如果是对象，直接可以根据对象来获得表名
-    tableName = [aTableName copy];
+       
+    NSString *tableName = NSStringFromClass([className class]);
     
     for (id value in aValue) {
         
@@ -240,17 +234,12 @@ const float WYDatabaseCloseRetryDuration = 10.0;
     return [self executeWithSql:aSql];
 }
 
-
-#pragma  mark -
-#pragma  mark /*查询数据*/
+#pragma  mark - /*查询数据*/
 
 -(NSMutableArray *)queryWithSql:(NSString *)aSql{
-    
-    if(aSql == nil || aSql.length == 0) {
         
-        DLog(@"error");
-        return nil;
-    }
+    NSAssert(aSql != nil && aSql.length != 0, @"【Error】 ");
+    
     return [self searchWithSql:aSql withClass:nil];
 
 }
@@ -300,7 +289,7 @@ const float WYDatabaseCloseRetryDuration = 10.0;
     
     if(SQLITE_OK != sqlite3_prepare_v2(_db, [aSql UTF8String], -1, &pStmt, &err)){
         
-        DLog(@"%s [%d] error with sql : %@",__func__,__LINE__,aSql);
+        DLog(@"【Error】 with sql : %@",aSql);
         return nil;
     }
     
@@ -320,9 +309,7 @@ const float WYDatabaseCloseRetryDuration = 10.0;
     return result;
 }
 
-
-#pragma  mark -
-#pragma  mark /*Transaction*/
+#pragma  mark - /*Transaction*/
 
 - (BOOL)beginTransaction{
 
@@ -336,28 +323,38 @@ const float WYDatabaseCloseRetryDuration = 10.0;
 
 - (BOOL)commit{
 
+    if(_isTransaction)
+    {
+        NSAssert(0, @"please commit pre transaction");
+        return NO;
+    }
+    
     return _isTransaction = [self executeWithSql:@"commit transaction"];
 }
 
 - (BOOL)rollback{
+    
+    if(_isTransaction)
+    {
+        NSAssert(0, @"please commit pre transaction");
+        return NO;
+    }
 
     return _isTransaction = [self executeWithSql:@"rollback transaction"];
 }
 
 
-#pragma  mark -
-#pragma  mark /*other*/
+#pragma  mark - /*other*/
+
 - (sqlite_int64)lastInsertRowId{
     
     return  sqlite3_last_insert_rowid(_db);
 }
 
-
-
-#pragma  mark -
-#pragma  mark private method
+#pragma  mark - private method
 
 -(NSMutableArray *)searchWithSql:(NSString *)aSql withClass:(Class)aClass{
+    
     
     NSMutableArray *sArray = [[NSMutableArray alloc] initWithCapacity:10];
     
@@ -369,7 +366,7 @@ const float WYDatabaseCloseRetryDuration = 10.0;
     
     if(SQLITE_OK != sqlite3_prepare_v2(_db, [aSql UTF8String], -1, &pStmt, &err)){
         
-        DLog(@"%s [%d] error with sql : %@",__func__,__LINE__,aSql);
+        DLog(@"【Error】 with sql : %@",aSql);
         return nil;
     }
     
@@ -397,9 +394,13 @@ const float WYDatabaseCloseRetryDuration = 10.0;
         
         NSMutableDictionary *aDic = [[NSMutableDictionary alloc] initWithCapacity:10];
         
+        
+        NSInteger index = 0;
+        if(bObj)
+            index = 1;
         for (int i = 0; i < [sAttribyte count]; i++) {
             
-            char *s = (char *)sqlite3_column_text(pStmt, i+1);
+            char *s = (char *)sqlite3_column_text(pStmt, index + i);
             
             [aDic setValue:[self converCharToString:s] forKey:sAttribyte[i]];
         }
@@ -419,13 +420,14 @@ const float WYDatabaseCloseRetryDuration = 10.0;
 
 int sqlite3CallBack( void * para, int n_column, char ** column_value, char ** column_name ){
 
-    DLog(@"sqlite3CallBack [%s][%d][%s][%s]",para,n_column,*column_value,*column_name);
-    return 1;
+    char *sss = (char *)para;
+    DLog(@"sqlite3CallBack [%s][%d][%s][%s]",sss,n_column,*column_value,*column_name);
+    return 0;
 }
 
 -(BOOL)executeWithSql:(NSString *)aSql{
 
-    if(aSql == nil || aSql.length == 0){
+    if(aSql == nil || aSql.length == 0 || [aSql rangeOfString:@"select"].location != NSNotFound){
     
         DLog(@"bad sql : %@",aSql);
         return NO;
@@ -437,12 +439,12 @@ int sqlite3CallBack( void * para, int n_column, char ** column_value, char ** co
     
     if(err){
     
-        DLog(@"%s [%d] error with sql : %@",__func__,__LINE__,aSql);
+        DLog(@"【Error】:%s with sql : %@",err,aSql);
         return NO;
     }
     if(rc == SQLITE_OK){
         
-        DLog(@"success with sql : %@",aSql);
+        DLog(@"Success with sql : %@",aSql);
     }
     return YES;
     
@@ -490,17 +492,16 @@ int sqlite3CallBack( void * para, int n_column, char ** column_value, char ** co
     }
     @catch (NSException *exception) {
         DLog(@"%@",exception);
+        return nil;
     }
     @finally {
-        return nil;
+        
     }
 }
 
 -(NSString *)converCharToString:(char *)pChar{
 
-    if(pChar == NULL)   return @"";
-    
-    return [NSString stringWithUTF8String:pChar];
+    return pChar == NULL ? @"" : [NSString stringWithUTF8String:pChar];
 }
 
 -(BOOL)isTableExists:(NSString *)aTableName{

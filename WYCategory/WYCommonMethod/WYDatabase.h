@@ -35,7 +35,7 @@
 
 -(BOOL)insertWithSql:(NSString *)aSql;
 
--(BOOL)insertWithObjValue:(NSArray *)aValue tableName:(NSString *)aTableName;
+-(BOOL)insertWithObjValue:(NSArray *)aValue tableName:(Class)className;
 
 -(BOOL)deleteWithSql:(NSString *)aSql;
 
