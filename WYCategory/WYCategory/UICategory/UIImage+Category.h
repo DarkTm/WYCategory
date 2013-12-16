@@ -20,4 +20,6 @@
 
 - (UIImage *)imageRotatedByAngle:(CGFloat)angle;
 
+-(UIImage *)addText:(UIImage *)img text:(NSString *)maskTxt;
+
 @end

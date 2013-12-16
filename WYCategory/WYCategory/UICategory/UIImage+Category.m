@@ -7,11 +7,12 @@
 //
 
 #import "UIImage+Category.h"
+#import <CoreText/CoreText.h>
 
 @implementation UIImage (Category)
 
 
-#pragma mark /*resize*/
+#pragma mark - /*resize*/
 + (UIImage*)imageConverToSize:(UIImage*)image scaledToSize:(CGSize)newSize{
     UIGraphicsBeginImageContext(newSize);
     
@@ -44,7 +45,7 @@
     return croppedImage;
 }
 
-#pragma mark /*rotation*/
+#pragma mark - /*rotation*/
 
 - (UIImage *)imageRotatedByDegrees:(CGFloat)degrees{
     return [self imageRotatedByDegrees:degrees * M_PI / 180];
@@ -76,6 +77,51 @@
     UIGraphicsEndImageContext();
     
     return newImage;
+}
+
+#pragma mark - /*mask*/
+-(UIImage *)addText:(UIImage *)img text:(NSString *)maskTxt
+{
+    //get image width and height
+    int w = img.size.width;
+    int h = img.size.height;
+    
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    //create a graphic context with CGBitmapContextCreate
+    CGContextRef context = CGBitmapContextCreate(NULL, w, h, 8, 4 * w, colorSpace, kCGImageAlphaPremultipliedFirst);
+    CGContextDrawImage(context, CGRectMake(0, 0, w, h), img.CGImage);
+    CGContextSetRGBFillColor(context, 0.0, 1.0, 1.0, 1);
+    
+    //  Get Chinese font
+    CTFontRef ctFont = CTFontCreateWithName(CFSTR("STHeitiSC-Light"), 20.0, NULL);
+    CGFontRef cgFont = CTFontCopyGraphicsFont(ctFont, NULL);
+    
+    CGContextSetFont(context, cgFont);
+    CGContextSetFontSize(context, 60);
+    
+    CGContextSetTextDrawingMode(context, kCGTextFill);
+    CGContextSetRGBFillColor(context, 0, 255, 255, 0.7);
+    
+    NSString *text = maskTxt;
+    CGGlyph textGlyphs[[text length]];
+    int count = [text length];
+    UniChar characters[sizeof(UniChar) * count];
+    
+    // Get the characters from the string.
+    CFStringGetCharacters((CFStringRef)text, CFRangeMake(0, count), characters);
+    CTFontGetGlyphsForCharacters(ctFont, characters, textGlyphs, [text length]);
+    CGContextShowGlyphsAtPoint(context, 100, 100, textGlyphs, [text length]);
+    
+    CGImageRef imageMasked = CGBitmapContextCreateImage(context);
+    CGContextRelease(context);
+    CGColorSpaceRelease(colorSpace);
+    
+    
+    CGFontRelease(cgFont);
+    CFRelease(ctFont);
+    
+    
+    return [UIImage imageWithCGImage:imageMasked];
 }
 
 @end
