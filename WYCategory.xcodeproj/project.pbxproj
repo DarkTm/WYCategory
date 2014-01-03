@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5F447143185EC99600014A36 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F447142185EC99600014A36 /* CoreText.framework */; };
+		5F73C54218765E4A00ACF585 /* MutableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F73C54118765E4A00ACF585 /* MutableObject.m */; };
 		5F89ABB11852E279005778F7 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F89ABB01852E279005778F7 /* ViewController.xib */; };
 		5F9670FF1849DA93009CCF8C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9670FE1849DA93009CCF8C /* Foundation.framework */; };
 		5F9671011849DA93009CCF8C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9671001849DA93009CCF8C /* CoreGraphics.framework */; };
@@ -52,6 +53,8 @@
 
 /* Begin PBXFileReference section */
 		5F447142185EC99600014A36 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		5F73C54018765E4A00ACF585 /* MutableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutableObject.h; sourceTree = "<group>"; };
+		5F73C54118765E4A00ACF585 /* MutableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutableObject.m; sourceTree = "<group>"; };
 		5F89ABB01852E279005778F7 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		5F9670FB1849DA93009CCF8C /* WYCategory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WYCategory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F9670FE1849DA93009CCF8C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -179,6 +182,8 @@
 				E2F9D5971851564400690DA9 /* DBObject.m */,
 				E2F9D591185151C500690DA9 /* ViewController.h */,
 				E2F9D592185151C600690DA9 /* ViewController.m */,
+				5F73C54018765E4A00ACF585 /* MutableObject.h */,
+				5F73C54118765E4A00ACF585 /* MutableObject.m */,
 				5F89ABB01852E279005778F7 /* ViewController.xib */,
 				5F9671161849DA93009CCF8C /* Images.xcassets */,
 				5F9671051849DA93009CCF8C /* Supporting Files */,
@@ -402,6 +407,7 @@
 				E2F9D594185151C600690DA9 /* ViewController.m in Sources */,
 				E2F9D5981851564400690DA9 /* DBObject.m in Sources */,
 				E2EFE88F185294E000950EED /* WYSheetController.m in Sources */,
+				5F73C54218765E4A00ACF585 /* MutableObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

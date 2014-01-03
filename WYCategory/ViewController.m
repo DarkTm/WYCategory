@@ -14,6 +14,10 @@
 #import "DBObject.h"
 
 #import "WYSheetController.h"
+
+
+#import "MutableObject.h"
+
 @interface ViewController ()
 {
 
@@ -62,6 +66,20 @@
 
 - (IBAction)on_btn:(id)sender {
     
+    NSMutableDictionary *aDic = [NSMutableDictionary dictionaryWithCapacity:2];
+    [aDic setValue:@"tangwei" forKey:@"name"];
+    
+    
+    NSArray *array = [NSArray arrayWithObjects:@"tom",@"wei'y", nil];
+    [aDic setValue:array forKey:@"aaaa"];
+    
+    
+    MutableObject *o = [[MutableObject alloc] initWithData:aDic];
+    
+    
+    
+    
+    
 //    UIView *v = [[UIView alloc] initWithFrame:CGRectMake(100, 100, 100, 200)];
 //    v.backgroundColor = [UIColor redColor];
 //
@@ -73,17 +91,17 @@
 //    
 //    return;
 //    [_db createTableWithSql:self.txt.text];
-    NSLog(@"%@",[[[DBObject alloc] init] getAttributeList]);
+//    NSLog(@"%@",[[[DBObject alloc] init] getAttributeList]);
     
 
     
-    DBObject *o = [[DBObject alloc] init];
-    o.name = @"tang222";
-    o.age = @"222";
-    o.country = @"2222";
+//    DBObject *o = [[DBObject alloc] init];
+//    o.name = @"tang222";
+//    o.age = @"222";
+//    o.country = @"2222";
 
 //    [_db queryObjWithClass:[DBObject class] withSql:@"select age,country from DBObject"];
-    [_db updateWithSql:@"select age,country from DBObject"];
+//    [_db updateWithSql:@"select age,country from DBObject"];
     
 //    [_db createTableWithObj:o];
 //    [_db insertWithObjValue:@[o] tableName:[DBObject class]];

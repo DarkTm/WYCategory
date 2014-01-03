@@ -24,23 +24,25 @@
             propertyName =[propertyName substringWithRange:NSMakeRange(1, propertyName.length - 1)];
         }
         
-        NSString *value = aDic[propertyName];
+        id value = aDic[propertyName];
         
         if ((![value isEqual:[NSNull class]]) && value) {
 
-            if ([value isKindOfClass:[NSArray class]]
-                || [value isKindOfClass:[NSDictionary class]]
-                || [value isKindOfClass:[NSMutableArray class]]
-                || [value isKindOfClass:[NSMutableDictionary class]]) {
-                
-                NSLog(@"复合对象 %@",propertyName);
-                continue;
-            }
+//            if ([value isKindOfClass:[NSArray class]]
+//                || [value isKindOfClass:[NSDictionary class]]
+//                || [value isKindOfClass:[NSMutableArray class]]
+//                || [value isKindOfClass:[NSMutableDictionary class]]) {
+//                
+//                NSLog(@"复合对象 %@",propertyName);
+//                continue;
+//            }
             
-            NSString *propertyType = [NSString stringWithFormat:@"%s",ivar_getTypeEncoding(var)];
-            if ([propertyType isEqualToString:@"@\"NSString\""]) {
+//            NSString *propertyType = [NSString stringWithFormat:@"%s",ivar_getTypeEncoding(var)];
+//            if ([propertyType isEqualToString:@"@\"NSString\""]) {
                 object_setIvar(self, var, [NSString stringWithFormat:@"%@",value]);
-            }
+//            }else if([propertyType isEqualToString:@"@\"NSArray\""]){
+//                object_setIvar(self, var, value);
+//            }
         }
         
         NSLog(@"[%@] %@:%@",[self class],propertyName, object_getIvar(self, var));
