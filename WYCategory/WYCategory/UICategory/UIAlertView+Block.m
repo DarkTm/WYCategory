@@ -36,8 +36,8 @@ static char *WYUIAlertViewKey = "WYUIAlertViewKey";
 }
 +(UIAlertView *)showAlertViewWithTitle:(NSString *)title withMessage:(NSString *)msg withAction:(WYUIAlertViewBlock)block{
     
-    NSString *mTitle = nil;
-    NSString *mMessage = nil;
+    NSString *mTitle = title;
+    NSString *mMessage = msg;
     if(!title)
         mTitle = @"";
     if(!msg)
@@ -46,10 +46,10 @@ static char *WYUIAlertViewKey = "WYUIAlertViewKey";
     UIAlertView *a = [[UIAlertView alloc] initWithTitle:mTitle message:mMessage delegate:self cancelButtonTitle:@"确认" otherButtonTitles:@"取消", nil];
     if(block){
     
-        __weak WYUIAlertViewBlock bb = block;
+//        __weak WYUIAlertViewBlock bb = block;
         
         [a addActionHandler:^(NSInteger index) {
-            bb(index);
+            block(index);
         }];
         
     }
