@@ -10,10 +10,21 @@
 
 @interface NSObject (Category)
 
+
+@end
+
+
+@interface NSObject (reflect)
+
 -(id)initWithReflectData:(NSDictionary *)aDic;
 -(NSMutableDictionary *)dictFromObject;
 
 -(NSMutableArray *)getAttributeList;
+
+@end
+
+
+@interface NSObject (archiver)
 
 +(id)unArchiverWithPath:(NSString *)path;
 +(void)archiverWithObj:(id)obj withPath:(NSString *)path;

@@ -9,11 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @interface NSData (Category)
+@end
+
+
+@interface NSData (base64)
 
 + (NSData *)dataWithBase64EncodedString:(NSString *)string;
 - (NSString *)base64EncodedStringWithWrapWidth:(NSUInteger)wrapWidth;
 - (NSString *)base64EncodedString;
-
 
 
 @end

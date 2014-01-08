@@ -9,8 +9,17 @@
 #import <Foundation/Foundation.h>
 
 @interface NSString (Category)
+@end
+
+
+@interface NSString(md5)
 
 - (NSString *) md5;
+
+@end
+
+
+@interface NSString(base64)
 
 + (NSString *)stringWithBase64EncodedString:(NSString *)string;
 - (NSString *)base64EncodedStringWithWrapWidth:(NSUInteger)wrapWidth;
@@ -18,7 +27,11 @@
 - (NSString *)base64DecodedString;
 - (NSData *)base64DecodedData;
 
-+(NSString *)getFolderWithType:(NSSearchPathDirectory)type;
+@end
 
+
+@interface NSString (path)
+
++(NSString *)getFolderWithType:(NSSearchPathDirectory)type;
 
 @end

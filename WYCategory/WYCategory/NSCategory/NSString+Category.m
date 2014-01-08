@@ -12,8 +12,11 @@
 #import <CommonCrypto/CommonDigest.h>
 
 @implementation NSString (Category)
+@end
 
-#pragma mark /*编码*/
+#pragma mark - md5 -
+
+@implementation NSString(md5)
 
 - (NSString *) md5{
     const char *cStr = [self UTF8String];
@@ -24,6 +27,11 @@
         [hash appendFormat:@"%02X", result[i]];
     return [hash uppercaseString];
 }
+
+@end
+
+#pragma mark - base64 -
+@implementation NSString (base64)
 
 - (NSData *)base64DecodedData{
     return [NSData dataWithBase64EncodedString:self];
@@ -52,14 +60,15 @@
     return [data base64EncodedStringWithWrapWidth:wrapWidth];
 }
 
-#pragma  mark -
-#pragma  mark /*路径*/
+@end
+
+#pragma mark - folder path -
+
+@implementation NSString (path)
 
 +(NSString *)getFolderWithType:(NSSearchPathDirectory)type{
-
+    
     return [NSSearchPathForDirectoriesInDomains(type, NSUserDomainMask, YES) objectAtIndex:0];
 }
-
-
 
 @end

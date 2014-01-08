@@ -51,7 +51,6 @@
 
 -(NSString *)queryWithSql:(NSString *)aSql columnIndex:(NSInteger)aIndex;
 
-
 -(sqlite_int64)lastInsertRowId;
 
 -(BOOL)beginTransaction;

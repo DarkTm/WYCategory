@@ -9,6 +9,12 @@
 #import "NSData+Category.h"
 
 @implementation NSData (Category)
+@end
+
+#pragma mark - base64 -
+
+@implementation NSData (base64)
+
 
 + (NSData *)dataWithBase64EncodedString:(NSString *)string{
     const char lookup[] =
@@ -128,5 +134,5 @@
     return [self base64EncodedStringWithWrapWidth:0];
 }
 
-
 @end
+

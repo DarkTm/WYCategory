@@ -13,8 +13,12 @@
 @implementation NSObject (Category)
 
 
-#pragma  mark -
-#pragma  mark  Reflect /*反射*/
+@end
+
+
+#pragma mark - reflect -
+
+@implementation NSObject (reflect)
 
 -(NSMutableArray *)getAttributeList{
     
@@ -35,7 +39,6 @@
     free(vars);
     return dictReturn;
 }
-
 
 
 -(id)initWithReflectData:(NSDictionary *)aDic{
@@ -99,9 +102,12 @@
     return dictReturn;
 }
 
+@end
 
-#pragma  mark -
-#pragma  mark  Archiver /*归档*/
+
+#pragma mark - archiver -
+
+@implementation NSObject (archiver)
 
 +(id)unArchiverWithPath:(NSString *)path{
     

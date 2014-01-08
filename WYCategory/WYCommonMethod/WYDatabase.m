@@ -26,7 +26,6 @@
 
 const float WYDatabaseCloseRetryDuration = 10.0;
 
-
 @implementation WYDatabase
 
 +(instancetype)openDatabaseWitPath:(NSString*)aPath{
@@ -126,7 +125,7 @@ const float WYDatabaseCloseRetryDuration = 10.0;
     return YES;
 }
 
-#pragma  mark - /*用对象来创建数据表*/
+#pragma  mark - 用对象来创建数据表 -
 
 -(BOOL)createTableWithObj:(id)aObj{
 
@@ -234,7 +233,7 @@ const float WYDatabaseCloseRetryDuration = 10.0;
     return [self executeWithSql:aSql];
 }
 
-#pragma  mark - /*查询数据*/
+#pragma  mark - 查询数据 -
 
 -(NSMutableArray *)queryWithSql:(NSString *)aSql{
         
@@ -309,7 +308,7 @@ const float WYDatabaseCloseRetryDuration = 10.0;
     return result;
 }
 
-#pragma  mark - /*Transaction*/
+#pragma  mark - Transaction -
 
 - (BOOL)beginTransaction{
 
@@ -344,14 +343,14 @@ const float WYDatabaseCloseRetryDuration = 10.0;
 }
 
 
-#pragma  mark - /*other*/
+#pragma  mark - other -
 
 - (sqlite_int64)lastInsertRowId{
     
     return  sqlite3_last_insert_rowid(_db);
 }
 
-#pragma  mark - private method
+#pragma  mark - private method -
 
 -(NSMutableArray *)searchWithSql:(NSString *)aSql withClass:(Class)aClass{
     

@@ -28,6 +28,7 @@
 		5F9671421849DB06009CCF8C /* UIAlertView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F96713C1849DB06009CCF8C /* UIAlertView+Block.m */; };
 		5F9671431849DB06009CCF8C /* UIButton+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F96713E1849DB06009CCF8C /* UIButton+Block.m */; };
 		5FF2C07D184B37ED005F4C5B /* NSObject+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF2C07C184B37ED005F4C5B /* NSObject+Category.m */; };
+		5FF97533187D06F1009EDE79 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF97532187D06F1009EDE79 /* Utils.m */; };
 		E23AADF6184A9EB700609645 /* UIColor+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = E23AADF5184A9EB700609645 /* UIColor+Category.m */; };
 		E23AADF9184AA79F00609645 /* UIImage+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = E23AADF8184AA79F00609645 /* UIImage+Category.m */; };
 		E2EFE88F185294E000950EED /* WYSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EFE88E185294E000950EED /* WYSheetController.m */; };
@@ -87,6 +88,8 @@
 		5F9671441849DB16009CCF8C /* WYCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYCategory.h; sourceTree = "<group>"; };
 		5FF2C07B184B37ED005F4C5B /* NSObject+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Category.h"; sourceTree = "<group>"; };
 		5FF2C07C184B37ED005F4C5B /* NSObject+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Category.m"; sourceTree = "<group>"; };
+		5FF97531187D06F1009EDE79 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		5FF97532187D06F1009EDE79 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		E23AADF4184A9EB700609645 /* UIColor+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Category.h"; sourceTree = "<group>"; };
 		E23AADF5184A9EB700609645 /* UIColor+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Category.m"; sourceTree = "<group>"; };
 		E23AADF7184AA79F00609645 /* UIImage+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Category.h"; sourceTree = "<group>"; };
@@ -182,6 +185,7 @@
 		5F9671041849DA93009CCF8C /* WYCategory */ = {
 			isa = PBXGroup;
 			children = (
+				5FF97530187D06F1009EDE79 /* Utils */,
 				5F93B1081876D3D000DBF2FC /* PushPHP */,
 				E2F9D58818512C6600690DA9 /* WYCommonMethod */,
 				E2F9D5821851296400690DA9 /* WYUICustomer */,
@@ -271,6 +275,15 @@
 				E23AADF8184AA79F00609645 /* UIImage+Category.m */,
 			);
 			path = UICategory;
+			sourceTree = "<group>";
+		};
+		5FF97530187D06F1009EDE79 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5FF97531187D06F1009EDE79 /* Utils.h */,
+				5FF97532187D06F1009EDE79 /* Utils.m */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		E2F9D57B1851293800690DA9 /* WYCommonObject */ = {
@@ -420,6 +433,7 @@
 				E2F9D5981851564400690DA9 /* DBObject.m in Sources */,
 				E2EFE88F185294E000950EED /* WYSheetController.m in Sources */,
 				5F73C54218765E4A00ACF585 /* MutableObject.m in Sources */,
+				5FF97533187D06F1009EDE79 /* Utils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

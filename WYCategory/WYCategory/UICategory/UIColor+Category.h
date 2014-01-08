@@ -10,6 +10,12 @@
 
 @interface UIColor (Category)
 
+@end
+
+
+@interface UIColor (rgb)
+
 +(UIColor *)RGBWithR:(float)r g:(float)g b:(float)b;
 +(UIColor *)RGBAWithR:(float)r g:(float)g b:(float)b a:(float)a;
+
 @end
